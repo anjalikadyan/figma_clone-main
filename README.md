@@ -46,7 +46,10 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
-- Next.js
+- MongoDB
+- Express.js
+- Next.js (React)
+- Node.js
 - TypeScript
 - Liveblocks
 - Fabric.js
@@ -112,9 +115,18 @@ Create a new file named `.env.local` in the root of your project and add the fol
 
 ```env
 NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
 ```
 
-Replace the placeholder values with your actual Liveblocks credentials. You can obtain these credentials by signing up on the [Liveblocks website](https://liveblocks.io).
+Create a new file named `server/.env` and add:
+
+```env
+MONGODB_URI=mongodb://127.0.0.1:27017/tigma
+PORT=5000
+CLIENT_URL=http://localhost:3000
+```
+
+Replace placeholder values with your real credentials and MongoDB connection string.
 
 **Running the Project**
 
@@ -122,7 +134,10 @@ Replace the placeholder values with your actual Liveblocks credentials. You can 
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+This starts both frontend and backend:
+
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend API: [http://localhost:5000/api/health](http://localhost:5000/api/health)
 
 ## <a name="snippets">🕸️ Snippets</a>
 

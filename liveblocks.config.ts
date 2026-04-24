@@ -1,9 +1,17 @@
 import { LiveMap, createClient } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
 
+const publicApiKey = process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY;
+
+if (!publicApiKey) {
+  throw new Error(
+    "Missing NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY. Add it to .env to enable realtime collaboration."
+  );
+}
+
 const client = createClient({
   throttle: 16,
-  publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY!,
+  publicApiKey,
 });
 
 // Presence represents the properties that exist on every user in the Room
